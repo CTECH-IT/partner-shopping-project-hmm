@@ -13,6 +13,7 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/main-shopping-list-styles.css">
   </head>
 
 <body>
@@ -29,6 +30,25 @@
         </a>
       </div>
   </header>
+
+  <body>
+    <div id="shopping-list-info-bar">
+      <div id="filter-selector"></div>
+      <p id="helpful-hint">Click an item to see description</p>
+      <p id="item-count"></p>
+    </div>
+    <div id="main-list-wrapper">
+      <ul id="item-list">
+        <li class="shopping-item">
+          <img src="img/square.png" alt="Example Image" class="product-image">
+          <div class="product-info">
+            <h4 class="product-title">An Example</h4>
+            <p class="product-description">The description of the example</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </body>
 
   <script src="scripts/main.js"></script>
 </body>

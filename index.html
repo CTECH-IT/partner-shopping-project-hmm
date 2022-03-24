@@ -13,6 +13,7 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/main-shopping-list-styles.css">
   </head>
 
 <body>
@@ -20,6 +21,23 @@
     <h1 class="page-title">My Awesome Website</h1>
     <p>This is some awesome text.</p>
   </header>
+
+  <body>
+    <div id="shopping-list-info-bar">
+      <div id="dropdown-filter"></div>
+      <p id="helpful-hint">Click an item to see details</p>
+      <p id="item-counter">0</p>
+    </div>
+    <div id="main-list-wrapper">
+      <ul id="item-list">
+        <li class="shopping-item">
+          <img src="img/square.png" alt="" class="product-image">
+          <h4 class="product-title">Example Item</h4>
+          <p class="product-description">Example description</p>
+        </li>
+      </ul>
+    </div>
+  </body>
 
   <script src="scripts/main.js"></script>
 </body>

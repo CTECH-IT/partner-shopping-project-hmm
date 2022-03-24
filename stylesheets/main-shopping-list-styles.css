@@ -1,0 +1,33 @@
+body {
+    display: flex;
+    flex-direction: column;
+}
+#shopping-list-info-bar {
+    display: flex;
+    flex: 0 1 auto;
+    flex-direction: row;
+    justify-content: space-between;
+}
+#main-list-wrapper {
+    border: 3px solid #aaaaaa;
+    border-radius: 5px;
+    margin: 0 1em;
+    padding: 1em;
+}
+#item-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.shopping-item {
+    max-width: 250px; /*needs a better unit for size*/
+}
+.shopping-item:hover {
+    cursor: pointer; /*not working*/
+}
+.product-image {
+    max-width: 100%;
+}

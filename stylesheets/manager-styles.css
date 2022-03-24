@@ -1,0 +1,30 @@
+body {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+#page-title {
+    font-size: 30px;
+}
+#order-container {
+    border: 3px dashed black;
+    border-radius: 10px;
+    padding: 10px;
+    width: 95%;
+}
+#temp-example-element {
+    display: flex;
+    flex-direction: row;
+}
+.identifier, .product-order {
+    padding: 2px;
+}
+.identifier {
+    border: 2px solid #aaaaaa;
+    border-right: none;
+    width: 15%;
+}
+.product-order {
+    border: 2px solid #aaaaaa;
+    width: 85%;
+}

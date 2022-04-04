@@ -22,12 +22,24 @@ body {
     margin: 0;
     padding: 0;
 }
+.product-row-container {
+    display: flex;
+    flex-direction: row;
+}
 .shopping-item {
+    background: none;
+    border: none;
+    border-radius: 5px;
     max-width: 250px; /*needs a better unit for size*/
+    padding: 8px;
 }
 .shopping-item:hover {
-    cursor: pointer; /*not working*/
+    background-color: #cccccc;
+    cursor: pointer;
 }
 .product-image {
     max-width: 100%;
+}
+.product-description {
+    display: hidden;
 }

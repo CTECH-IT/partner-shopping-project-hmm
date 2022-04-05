@@ -3,7 +3,7 @@
 
   <head>
     <meta charset="utf-8">
-    <title>Partner Shopping Project</title>
+    <title>Caleb and Tyler's Boot Shop</title>
     <meta name="author" content="Put your name here">
     
     <!-- If you are using p5.js to create drawings or games, uncomment the next line: -->
@@ -15,6 +15,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/main-shopping-list-styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Palette+Mosaic&display=swap" rel="stylesheet">
   </head>
 
 <body>
@@ -27,7 +30,7 @@
         </div>
       </div>
         <div class="cart-icon-holder">
-          <a href="#">
+          <a href="checkout.html">
             <img src="/images/cart-icon.png" class="cart-icon">
           </a>
         </div>
@@ -42,60 +45,52 @@
     <div id="main-list-wrapper">
       <ul id="item-list">
         <li class="product-row-container">
-          <button type="button" class="shopping-item" onclick="toggleDesc()">
+          <button type="button" class="shopping-item" onclick="toggleDesc(this)" desc="Example Description">
             <img src="img/square.png" alt="" class="product-image">
             <h4 class="product-title">Example Item</h4>
-            <p class="product-description">Example description</p>
           </button>
-          <button type="button" class="shopping-item" onclick="toggleDesc()">
+          <button type="button" class="shopping-item" onclick="toggleDesc(this)" desc="Example Description">
             <img src="img/square.png" alt="" class="product-image">
             <h4 class="product-title">Example Item</h4>
-            <p class="product-description">Example description</p>
           </button>
-          <button type="button" class="shopping-item" onclick="toggleDesc()">
+          <button type="button" class="shopping-item" onclick="toggleDesc(this)" desc="Example Description">
             <img src="img/square.png" alt="" class="product-image">
             <h4 class="product-title">Example Item</h4>
-            <p class="product-description">Example description</p>
           </button>
         </li>
         <li class="product-row-container">
-          <button type="button" class="shopping-item" onclick="toggleDesc()">
+          <button type="button" class="shopping-item" onclick="toggleDesc(this)" desc="Example Description">
             <img src="img/square.png" alt="" class="product-image">
             <h4 class="product-title">Example Item</h4>
-            <p class="product-description">Example description</p>
           </button>
-          <button type="button" class="shopping-item" onclick="toggleDesc()">
+          <button type="button" class="shopping-item" onclick="toggleDesc(this)" desc="Example Description">
             <img src="img/square.png" alt="" class="product-image">
             <h4 class="product-title">Example Item</h4>
-            <p class="product-description">Example description</p>
           </button>
-          <button type="button" class="shopping-item" onclick="toggleDesc()">
+          <button type="button" class="shopping-item" onclick="toggleDesc(this)" desc="Example Description">
             <img src="img/square.png" alt="" class="product-image">
             <h4 class="product-title">Example Item</h4>
-            <p class="product-description">Example description</p>
           </button>
         </li>
         <li class="product-row-container">
-          <button type="button" class="shopping-item" onclick="toggleDesc()">
+          <button type="button" class="shopping-item" onclick="toggleDesc(this)" desc="Example Description">
             <img src="img/square.png" alt="" class="product-image">
             <h4 class="product-title">Example Item</h4>
-            <p class="product-description">Example description</p>
           </button>
-          <button type="button" class="shopping-item" onclick="toggleDesc()">
+          <button type="button" class="shopping-item" onclick="toggleDesc(this)" desc="Example Description">
             <img src="img/square.png" alt="" class="product-image">
             <h4 class="product-title">Example Item</h4>
-            <p class="product-description">Example description</p>
           </button>
-          <button type="button" class="shopping-item" onclick="toggleDesc()">
+          <button type="button" class="shopping-item" onclick="toggleDesc(this)" desc="Example Description">
             <img src="img/square.png" alt="" class="product-image">
             <h4 class="product-title">Example Item</h4>
-            <p class="product-description">Example description</p>
           </button>
         </li>
       </ul>
     </div>
   </body>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
   <script src="scripts/main.js"></script>
 </body>
 </html>

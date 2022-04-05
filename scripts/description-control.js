@@ -10,6 +10,8 @@ function initializeLists() { //gets every button element, and then sets the desc
 }
 let buttonModes = initializeLists();
 */
-function toggleDesc() {
+function toggleDesc(element) {
+    let $ = window.jQuery;
+    let $element = element;
     
 }

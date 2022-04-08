@@ -4,6 +4,9 @@
     margin: 0 1em;
     margin-top: 1em;
     padding: 1em;
+    display: flex;
+    justify-content: center;
+    text-align: center;
 }
 
 #mobile-item-description {
@@ -11,7 +14,7 @@
     flex-direction: row;
 }
 
-#temp-text {
+.temp-text {
     display: block;
     justify-content: space-around;
     text-align: center;
@@ -24,9 +27,19 @@
 .mobile-product-title {
     font-family: 'Palette Mosaic', cursive;
     font-size: 1.3em;
-    margin-left: 2em;
+}
+
+.mobile-product-description {
+    font-family: 'Palette Mosaic', cursive;
+    font-size: 1.3em;
 }
 
 .invisible {
     display: none;
+}
+
+@media all and (min-width: 600px) {
+    #mobile-item-view {
+        display:none;
+    }
 }

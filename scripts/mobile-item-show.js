@@ -1,17 +1,21 @@
 const DETAIL_IMAGE_SELECTOR = '[data-image-role = "target"]';
 const DETAIL_TITLE_SELECTOR = '[data-image-role = "title"]';
+const DETAIL_DESC_SELECTOR = '[data-image-role = "description"]';
+const DETAIL_TEMP_TEXT_SELECTOR = '[data-image-role = "temp-text"]';
 const DETAIL_FRAME_SELECTOR = '[data-image-role = "frame"]';
 const THUMBNAIL_LINK_SELECTOR = '[data-image-role = "trigger"]';
 const HIDDEN_DETAIL_CLASS = "invisible";
 
-function setDetails(imageUrl, titleText) {
+function setDetails(imageUrl, titleText, descText) {
     "use strict";
     let detailImage = document.querySelector(DETAIL_IMAGE_SELECTOR);
     detailImage.setAttribute("src", imageUrl);
 
     let detailTitle = document.querySelector(DETAIL_TITLE_SELECTOR);
-    console.log(detailTitle)
     detailTitle.textContent = titleText;
+
+    let detailDescription = document.querySelector(DETAIL_DESC_SELECTOR);
+    detailDescription.textContent = descText;
 }
 
 
@@ -25,9 +29,14 @@ function titleFromThumb(thumbnail) {
     return thumbnail.getAttribute("data-image-title");
 }
 
+function descFromThumb(thumbnail) {
+    "use strict";
+    return thumbnail.getAttribute("data-image-description");
+}
+
 function setDetailsFromThumb(thumbnail) {
     "use strict";
-    setDetails(imageFromThumb(thumbnail), titleFromThumb(thumbnail));
+    setDetails(imageFromThumb(thumbnail), titleFromThumb(thumbnail), descFromThumb(thumbnail));
 }
 
 function addThumbClickHandler(thumb) {
@@ -35,7 +44,7 @@ function addThumbClickHandler(thumb) {
     thumb.addEventListener("click", function(event) {
         event.preventDefault;
         setDetailsFromThumb(thumb);
-        showDetails(); // show big image
+        showDetails(); 
     })
 }
 
@@ -46,20 +55,12 @@ function getThumbnailsArray() {
     return thumbnailArray
 }
 
-function hideDetails() {
-    "use strict";
-    document.body.classList.add(HIDDEN_DETAIL_CLASS);
-
-}
-
 function showDetails() {
     "use strict";
     let frame = document.querySelector(DETAIL_FRAME_SELECTOR);
-    document.body.classList.remove(HIDDEN_DETAIL_CLASS);
-    frame.classList.add(TINY_EFFECT_CLASS);
-    setTimeout(function() {
-        frame.classList.remove(TINY_EFFECT_CLASS);
-    }, 50);
+    let temptext = document.querySelector(DETAIL_TEMP_TEXT_SELECTOR);
+    frame.classList.remove(HIDDEN_DETAIL_CLASS);
+    temptext.classList.add(HIDDEN_DETAIL_CLASS);
 }
 
 function initializeEvents() {

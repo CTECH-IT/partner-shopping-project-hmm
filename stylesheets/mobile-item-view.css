@@ -1,0 +1,45 @@
+#mobile-item-view {
+    border: 3px solid #aaaaaa;
+    border-radius: 5px;
+    margin: 0 1em;
+    margin-top: 1em;
+    padding: 1em;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+#mobile-item-description {
+    display: flex;
+    flex-direction: row;
+}
+
+.temp-text {
+    display: block;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.mobile-product-image {
+    max-width: 100%;
+}
+
+.mobile-product-title {
+    font-family: 'Palette Mosaic', cursive;
+    font-size: 1.3em;
+}
+
+.mobile-product-description {
+    font-family: 'Palette Mosaic', cursive;
+    font-size: 1.3em;
+}
+
+.invisible {
+    display: none;
+}
+
+@media all and (min-width: 600px) {
+    #mobile-item-view {
+        display:none;
+    }
+}

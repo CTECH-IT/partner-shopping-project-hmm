@@ -6,10 +6,6 @@
     <title>Caleb and Tyler's Boot Shop</title>
     <meta name="author" content="Put your name here">
     
-    <!-- If you are using p5.js to create drawings or games, uncomment the next line: -->
-    <!--
-      <script src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/p5.js"></script>
-    -->
     <link rel="icon" type="image/x-icon" href="img/custom-favicon.jpg">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
@@ -21,7 +17,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Palette+Mosaic&display=swap" rel="stylesheet">
   </head>
 
-<body>
+  <body>
+  <script src="scripts/open-cart-screen.js"></script>
   <header>
     <header class="page-header">
       <div class="testclass">
@@ -31,9 +28,9 @@
         </div>
       </div>
         <div class="cart-icon-holder">
-          <a href="checkout.html">
+          <button type="button" onclick="openCartScreen()">
             <img src="/img/shopping-cart.png" class="cart-icon">
-          </a>
+          </button>
         </div>
   </header>
 

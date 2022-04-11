@@ -28,7 +28,7 @@ function descOff(element) { //removes the description
     $(element).removeAttr('contains-desc');
 }
 
-function toggleDesc(element) { //turns on and off descriptions
+function toggleDesc(element) { //turns on and off description
     let $el = $(element);
     if($el.attr('contains-desc') == 'yes') {
         descOff(element);

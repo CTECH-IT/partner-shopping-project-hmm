@@ -1,3 +1,3 @@
 function openCartScreen() {
-    window.open('checkout.html', '_self')
+    window.open('checkout.html', '_self');
 }

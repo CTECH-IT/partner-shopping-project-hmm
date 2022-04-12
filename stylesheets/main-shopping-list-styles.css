@@ -8,6 +8,13 @@ body {
     flex-direction: row;
     justify-content: space-between;
 }
+#cart-button {
+    border: none;
+    background: none;
+}
+#cart-button:hover {
+    cursor: pointer;
+}
 #helpful-hint {
     font-style: italic;
     text-transform: lowercase;
@@ -41,6 +48,10 @@ body {
     background: none;
     border: none;
     border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
     max-width: 250px; /*needs a better unit for size*/
     margin: 0em .6em .3em .6em;
     padding: 8px;

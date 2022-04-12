@@ -5,6 +5,7 @@ var cartItems = {};
 function addToCart(button) { //adds opened item to cart and closes panel
     let orderName = $(button.parentElement).attr('product-name');
     let orderNum = parseInt(document.querySelector(NUM_LOC).value);
+    //let productPrice = parseInt($(button.parentElement).attr('price-value'));
     let thing = document.querySelector('[contains-desc="yes"]');
     toggleDesc(thing);
     if (cartItems[orderName] != undefined) {

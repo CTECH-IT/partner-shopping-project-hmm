@@ -1,5 +1,5 @@
 //this is just a copy of coffe run's remote data store
-
+const SERVER_URL = 'http://saturn.rochesterschools.org:8080/json';
 (function (window) {
     'use strict';
     var App = window.App || {};
@@ -39,3 +39,7 @@
     App.RemoteDataStore = RemoteDataStore;
     window.App = App;
 })(window)
+
+let App = window.App;
+let RemoteDataStore = App.RemoteDataStore;
+let remoteDataStore = new RemoteDataStore(SERVER_URL);

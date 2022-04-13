@@ -11,9 +11,13 @@ function descOn(element) { //adds a description and add to cart button for an el
     $button.attr('id', 'add-cart-button');
     $button.attr('type', 'button');
     $button.attr('onclick', 'addToCart(this)');
-    let $numInpt = $('<input></input>', {'type': 'number', 'value': '1', 'id': 'numField'});
+    let priceLevel = $(element).attr('data-image-price');
+    let $total = $('<p id="ord-total"></p>', {'price-per': priceLevel});
+    $total.html('$' + priceLevel);
+    let $numInpt = $('<input></input>', {'type': 'number', 'value': '1', 'id': 'numField', 'min': '1'});
     $div.append($description);
     $div.append($numInpt);
+    $div.append($total);
     $div.append($button);
     $(element.parentElement).after($div);
     $(element).attr('contains-desc', 'yes');

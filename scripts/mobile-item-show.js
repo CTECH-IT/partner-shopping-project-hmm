@@ -1,21 +1,26 @@
 const DETAIL_IMAGE_SELECTOR = '[data-image-role = "target"]';
 const DETAIL_TITLE_SELECTOR = '[data-image-role = "title"]';
 const DETAIL_DESC_SELECTOR = '[data-image-role = "description"]';
+const DETAIL_PRICE_SELECTOR = '[data-image-role = "price"]';
 const DETAIL_TEMP_TEXT_SELECTOR = '[data-image-role = "temp-text"]';
 const DETAIL_FRAME_SELECTOR = '[data-image-role = "frame"]';
 const THUMBNAIL_LINK_SELECTOR = '[data-image-role = "trigger"]';
 const HIDDEN_DETAIL_CLASS = "invisible";
 
-function setDetails(imageUrl, titleText, descText) {
+function setDetails(imageUrl, titleText, descText, priceText) {
     "use strict";
-    let detailImage = document.querySelector(DETAIL_IMAGE_SELECTOR);
-    detailImage.setAttribute("src", imageUrl);
 
-    let detailTitle = document.querySelector(DETAIL_TITLE_SELECTOR);
-    detailTitle.textContent = titleText;
+        let detailImage = document.querySelector(DETAIL_IMAGE_SELECTOR);
+        detailImage.setAttribute("src", imageUrl);
 
-    let detailDescription = document.querySelector(DETAIL_DESC_SELECTOR);
-    detailDescription.textContent = descText;
+        let detailTitle = document.querySelector(DETAIL_TITLE_SELECTOR);
+        detailTitle.textContent = titleText;
+
+        let detailDescription = document.querySelector(DETAIL_DESC_SELECTOR);
+        detailDescription.textContent = descText;
+
+        let detailPrice = document.querySelector(DETAIL_PRICE_SELECTOR);
+        detailPrice.textContent = priceText;
 }
 
 
@@ -31,12 +36,19 @@ function titleFromThumb(thumbnail) {
 
 function descFromThumb(thumbnail) {
     "use strict";
-    return thumbnail.getAttribute("data-image-description");
+    return thumbnail.getAttribute("desc");
+}
+
+function priceFromThumb(thumbnail) {
+    "use strict";
+    let number = parseInt(thumbnail.getAttribute("price-val"));
+    let newnumber = (Math.round(number * 100) / 100).toFixed(2)
+    return newnumber
 }
 
 function setDetailsFromThumb(thumbnail) {
     "use strict";
-    setDetails(imageFromThumb(thumbnail), titleFromThumb(thumbnail), descFromThumb(thumbnail));
+    setDetails(imageFromThumb(thumbnail), titleFromThumb(thumbnail), descFromThumb(thumbnail), priceFromThumb(thumbnail));
 }
 
 function addThumbClickHandler(thumb) {
@@ -62,6 +74,15 @@ function showDetails() {
     frame.classList.remove(HIDDEN_DETAIL_CLASS);
     temptext.classList.add(HIDDEN_DETAIL_CLASS);
 }
+
+function hideDetails() {
+    "use strict";
+    let frame = document.querySelector(DETAIL_FRAME_SELECTOR);
+    let temptext = document.querySelector(DETAIL_TEMP_TEXT_SELECTOR);
+    frame.classList.add(HIDDEN_DETAIL_CLASS);
+    temptext.classList.remove(HIDDEN_DETAIL_CLASS);
+}
+
 
 function initializeEvents() {
     "use strict";

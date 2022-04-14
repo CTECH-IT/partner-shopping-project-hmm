@@ -53,7 +53,7 @@ body {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    max-width: 250px; /*needs a better unit for size*/
+    max-width: 350px; /*needs a better unit for size*/
     margin: 0em .6em .3em .6em;
     padding: 8px;
 }

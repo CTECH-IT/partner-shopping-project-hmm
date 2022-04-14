@@ -37,7 +37,7 @@ body {
     list-style: none;
     margin: 0;
     padding: 0;
-    width: 90%;
+    width: 100%;
 }
 .product-row-container {
     display: flex;
@@ -49,10 +49,11 @@ body {
     border: none;
     border-radius: 5px;
     display: flex;
+    flex: 1 1;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    max-width: 250px; /*needs a better unit for size*/
+    max-width: 350px; /*needs a better unit for size*/
     margin: 0em .6em .3em .6em;
     padding: 8px;
 }
@@ -106,6 +107,7 @@ body {
         list-style: none;
         margin: 0;
         padding: 0;
+        width: 100%;
 
     }
     .shopping-item {

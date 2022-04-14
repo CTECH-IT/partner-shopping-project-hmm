@@ -1,11 +1,11 @@
 const BUTTON_ID = '[class="shopping-item"]';
-const DESC_LOC = '[contains-desc="yes"]'
+const DESC_LOC = '[contains-desc="yes"]';
 
 var $ = window.jQuery;
 
 function descOn(element) { //adds a description and add to cart button for an element
     let $div = $('<li></li>', 
-        {'class': 'desc-container', 'product-name': element.lastElementChild.innerHTML});
+        {'class': 'desc-container', 'product-name': element.lastElementChild.previousElementSibling.innerHTML, 'data-image-price': $(element).attr('data-image-price')});
     let $description = $(element).attr("desc");
     let $button = $('<button>Add To Cart</button>');
     $button.attr('id', 'add-cart-button');

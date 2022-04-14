@@ -41,7 +41,7 @@ function descFromThumb(thumbnail) {
 
 function priceFromThumb(thumbnail) {
     "use strict";
-    let number = parseInt(thumbnail.getAttribute("price-val"));
+    let number = parseInt(thumbnail.getAttribute("data-image-price"));
     let newnumber = (Math.round(number * 100) / 100).toFixed(2)
     return newnumber
 }

@@ -2,7 +2,7 @@ var total;
 const CART_DATA_LOC = 'ABCabc15739';
 
 function displayOrder() {
-    let theDataItself;
+    let theDataItself = {};
     remoteDataStore.get(CART_DATA_LOC, function (serverResponse) {
         console.log(serverResponse);
         theDataItself = serverResponse;

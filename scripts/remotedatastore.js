@@ -12,7 +12,7 @@ const SERVER_URL = 'http://saturn.rochesterschools.org:8080/json';
         this.serverUrl = url;
     }
 
-    RemoteDataStore.prototype.add = function (key, val) {
+    RemoteDataStore.prototype.add = function (val) {
         $.post(this.serverUrl, val, function (serverResponse) {
             console.log(serverResponse);
         });

@@ -66,6 +66,9 @@ body {
     cursor: pointer;
     box-shadow: inset 1px 1px 3px #0000003b;
 }
+.shopping-item:active {
+    background-color: #aaaaaa;
+}
 .product-image {
     max-width: 100%;
 }
@@ -88,6 +91,12 @@ body {
     border-radius: 3px;
     padding: 3px;
     background: #4fc24f;
+}
+#add-cart-button:hover {
+    background: #5fd265;
+}
+#add-cart-button:active {
+    background: #238a28;
 }
 #numField {
     width: 10%;

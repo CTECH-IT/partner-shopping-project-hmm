@@ -2,12 +2,15 @@ const DETAIL_IMAGE_SELECTOR = '[data-image-role = "target"]';
 const DETAIL_TITLE_SELECTOR = '[data-image-role = "title"]';
 const DETAIL_DESC_SELECTOR = '[data-image-role = "description"]';
 const DETAIL_PRICE_SELECTOR = '[data-image-role = "price"]';
+const DETAIL_BUTTON_SELECTOR = '[data-image-role = "add-to-cart"]';
+const DETAIL_COUNT_SELECTOR = '[data-image-role = "product-count"]';
 const DETAIL_TEMP_TEXT_SELECTOR = '[data-image-role = "temp-text"]';
 const DETAIL_FRAME_SELECTOR = '[data-image-role = "frame"]';
 const THUMBNAIL_LINK_SELECTOR = '[data-image-role = "trigger"]';
 const HIDDEN_DETAIL_CLASS = "invisible";
 var previousItem = "none";
 var sameItem = false;
+var currentThumbnail;
 
 function setDetails(imageUrl, titleText, descText, priceText) {
     "use strict";
@@ -46,6 +49,7 @@ function checkForRemoval(title) {
 }
 
 
+
 function imageFromThumb(thumbnail) {
     "use strict";
     return thumbnail.getAttribute("data-image-url");
@@ -61,23 +65,30 @@ function descFromThumb(thumbnail) {
     return thumbnail.getAttribute("desc");
 }
 
-function priceFromThumb(thumbnail) {
+function priceFromThumb(thumbnail, isAddToCart) {
     "use strict";
-    let number = parseInt(thumbnail.getAttribute("data-image-price"));
-    let newnumber = (Math.round(number * 100) / 100).toFixed(2)
-    return newnumber
+    if (isAddToCart == false) {
+        let number = parseInt(thumbnail.getAttribute("data-image-price"));
+        let newnumber = (Math.round(number * 100) / 100).toFixed(2)
+        return newnumber
+    } else {
+        return parseInt(thumbnail.getAttribute("data-image-price"))
+    }
 }
 
 function setDetailsFromThumb(thumbnail) {
     "use strict";
-    setDetails(imageFromThumb(thumbnail), titleFromThumb(thumbnail), descFromThumb(thumbnail), priceFromThumb(thumbnail));
+    setDetails(imageFromThumb(thumbnail), titleFromThumb(thumbnail), descFromThumb(thumbnail), priceFromThumb(thumbnail, false));
 }
+
+
 
 function addThumbClickHandler(thumb) {
     "use strict";
     thumb.addEventListener("click", function(event) {
         event.preventDefault;
         setDetailsFromThumb(thumb);
+        currentThumbnail = thumb;
         showOrHideDetails();
     })
 }
@@ -93,8 +104,10 @@ function showDetails() {
     "use strict";
     let frame = document.querySelector(DETAIL_FRAME_SELECTOR);
     let temptext = document.querySelector(DETAIL_TEMP_TEXT_SELECTOR);
+    let count = document.querySelector(DETAIL_COUNT_SELECTOR);
     frame.classList.remove(HIDDEN_DETAIL_CLASS);
     temptext.classList.add(HIDDEN_DETAIL_CLASS);
+    count.value = 1;
 }
 
 function hideDetails() {
@@ -112,6 +125,19 @@ function showOrHideDetails() {
         showDetails();
     }
 }
+
+
+function inMobile_addToCart() {
+    let orderName = titleFromThumb(currentThumbnail);
+    let productPrice = priceFromThumb(currentThumbnail, true);
+    let orderNum = document.querySelector(DETAIL_COUNT_SELECTOR).value;
+    addToCartMobile(orderName, orderNum, productPrice);
+
+    hideDetails();
+}
+
+
+
 
 function initializeEvents() {
     "use strict";

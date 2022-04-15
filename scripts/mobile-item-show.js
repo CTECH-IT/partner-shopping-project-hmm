@@ -6,21 +6,43 @@ const DETAIL_TEMP_TEXT_SELECTOR = '[data-image-role = "temp-text"]';
 const DETAIL_FRAME_SELECTOR = '[data-image-role = "frame"]';
 const THUMBNAIL_LINK_SELECTOR = '[data-image-role = "trigger"]';
 const HIDDEN_DETAIL_CLASS = "invisible";
+var previousItem = "none";
+var sameItem = false;
 
 function setDetails(imageUrl, titleText, descText, priceText) {
     "use strict";
 
-        let detailImage = document.querySelector(DETAIL_IMAGE_SELECTOR);
-        detailImage.setAttribute("src", imageUrl);
+        if (checkForRemoval(titleText) == false) {
 
-        let detailTitle = document.querySelector(DETAIL_TITLE_SELECTOR);
-        detailTitle.textContent = titleText;
+            let detailImage = document.querySelector(DETAIL_IMAGE_SELECTOR);
+            detailImage.setAttribute("src", imageUrl);
 
-        let detailDescription = document.querySelector(DETAIL_DESC_SELECTOR);
-        detailDescription.textContent = descText;
+            let detailTitle = document.querySelector(DETAIL_TITLE_SELECTOR);
+            detailTitle.textContent = titleText;
 
-        let detailPrice = document.querySelector(DETAIL_PRICE_SELECTOR);
-        detailPrice.textContent = priceText;
+            let detailDescription = document.querySelector(DETAIL_DESC_SELECTOR);
+            detailDescription.textContent = descText;
+
+            let detailPrice = document.querySelector(DETAIL_PRICE_SELECTOR);
+            detailPrice.textContent = priceText;
+
+            previousItem = titleText;
+
+        } else {
+        }
+}
+
+function checkForRemoval(title) {
+    if (previousItem == title) {
+        sameItem = true;
+        previousItem = "none"
+        return true;
+
+    } else {
+        sameItem = false;
+        return false;
+
+    }
 }
 
 
@@ -56,7 +78,7 @@ function addThumbClickHandler(thumb) {
     thumb.addEventListener("click", function(event) {
         event.preventDefault;
         setDetailsFromThumb(thumb);
-        showDetails(); 
+        showOrHideDetails();
     })
 }
 
@@ -83,6 +105,13 @@ function hideDetails() {
     temptext.classList.remove(HIDDEN_DETAIL_CLASS);
 }
 
+function showOrHideDetails() {
+    if (sameItem == true) {
+        hideDetails();
+    } else {
+        showDetails();
+    }
+}
 
 function initializeEvents() {
     "use strict";

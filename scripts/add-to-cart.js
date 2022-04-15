@@ -24,11 +24,13 @@ function changeOut(val) { //sets text field to price value
     outField.innerHTML = '$' + ($pricePer * val);
 }
 
-function addToCartMobile(orderName, orderNum, productPrice) {
+function addToCartMobile(orderName, orderNumIn, productPrice) {
+    var orderNum = parseInt(orderNumIn)
     if (cartItems[orderName] != undefined) {
         cartItems[orderName] = cartItems[orderName] + orderNum;
     } else {
         cartItems[orderName] = orderNum;
     }
     itemPrices[orderName] = productPrice;
+    resetCurrentItem()
 }

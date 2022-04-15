@@ -48,6 +48,11 @@ function checkForRemoval(title) {
     }
 }
 
+function resetCurrentItem() {
+    previousItem = "none";
+    sameItem = false;
+}
+
 
 
 function imageFromThumb(thumbnail) {

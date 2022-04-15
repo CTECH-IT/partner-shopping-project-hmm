@@ -28,6 +28,7 @@ body {
     border-radius: 5px;
     margin: 0 1em;
     padding: 1em;
+    margin-bottom: 50px;
 }
 #item-list {
     align-items: center;
@@ -63,6 +64,7 @@ body {
 .shopping-item:hover {
     background-color: #cccccc;
     cursor: pointer;
+    box-shadow: inset 1px 1px 3px #0000003b;
 }
 .product-image {
     max-width: 100%;

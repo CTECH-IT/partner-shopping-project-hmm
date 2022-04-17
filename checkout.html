@@ -32,7 +32,7 @@
       </div>
   </header>
 
-  <body>
+  <body onload="displayOrder()">
     <div id="checkout-items-container">
       <p>Items in your cart are listed below.</p>
     </div>
@@ -45,11 +45,14 @@
         <button class="submit-button">Submit</button>
       </div>
     </form>
-
     
   </body>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
+  <script src="scripts/remotedatastore.js"></script>
+  <script src="scripts/add-to-cart.js"></script>
+  <script src="scripts/open-cart-screen.js"></script>
   <script src="scripts/main.js"></script>
+  <script src="scripts/mobile-item-show.js"></script>
 </body>
 </html>

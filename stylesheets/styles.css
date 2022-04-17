@@ -38,3 +38,15 @@
     display: flex;
 }
 
+.shop-icon-holder {
+    float:right;
+
+}
+
+.shop-icon {
+    float:right;
+    max-width:30px;
+    max-height:30px;
+    display: flex;
+}
+

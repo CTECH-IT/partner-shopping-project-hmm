@@ -15,6 +15,13 @@ body {
 #cart-button:hover {
     cursor: pointer;
 }
+#shop-button {
+    border: none;
+    background: none;
+}
+#shop-button:hover {
+    cursor: pointer;
+}
 #helpful-hint {
     font-style: italic;
     text-transform: lowercase;

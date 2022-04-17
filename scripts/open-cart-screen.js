@@ -39,3 +39,9 @@ function openCartScreen() {
     remoteDataStore.add({'emailAddress': CART_DATA_LOC, 'pdata': cartItems, 'sdata': itemPrices});
     window.open('checkout.html', '_self');
 }
+
+function openShopScreen() {
+    //remoteDataStore.remove(CART_DATA_LOC, function () {});
+    remoteDataStore.add({'emailAddress': CART_DATA_LOC, 'pdata': cartItems, 'sdata': itemPrices});
+    window.open('index.html', '_self');
+}

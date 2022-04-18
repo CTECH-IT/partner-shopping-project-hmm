@@ -2,16 +2,22 @@ var total;
 const CART_DATA_LOC = 'ABCabc15739';
 
 function makeDivsOfOrder() {
-    let $orderCont = $('<div id="order-display-container"></div>');
+    let $orderCont = $('<table id="order-display-container"></table>');
+    let $headerRow = $('<tr class="item-display"></tr>');
+    $headerRow.append($('<th class="prod-title">Item</th>'));
+    $headerRow.append($('<th class="prod-price-per">Price Per</th>'));
+    $headerRow.append($('<th class="prod-num">Number to Order</th>'));
+    $headerRow.append($('<th class="prod-tot-price">Item Total</th>'));
+    $orderCont.append($headerRow);
     for (let i in cartItems) {
-        let $itemDis = $('<div class="item-display"></div>');
-        let $productName = $('<p class="prod-title"></p>');
+        let $itemDis = $('<tr class="item-display"></tr>');
+        let $productName = $('<td class="prod-title"></td>');
         $productName.html(i);
-        let $productPricePer = $('<p class="prod-price-per"></p>');
+        let $productPricePer = $('<td class="prod-price-per"></td>');
         $productPricePer.html(itemPrices[i]);
-        let $productCount = $('<p class="prod-num"></p>');
+        let $productCount = $('<td class="prod-num"></td>');
         $productCount.html(cartItems[i]);
-        let $productLineTotal = $('<p class="prod-tot-price"></p>');
+        let $productLineTotal = $('<td class="prod-tot-price"></td>');
         let prlt = itemPrices[i] * cartItems[i];
         total += prlt;
         $productLineTotal.html(prlt);
@@ -22,21 +28,16 @@ function makeDivsOfOrder() {
         $itemDis.append($productLineTotal);
         $orderCont.append($itemDis);
     }
-    $('body').append($orderCont);
+    $('#checkout-items-container').append($orderCont);
 }
 
 function displayOrder() {
     'use strict';
     let theDataItself = {};
     remoteDataStore.get(CART_DATA_LOC, function (resp) {
-        console.log('on the bright side');
-        console.log(resp);
-        theDataItself = resp;
-        console.log(Object.keys(theDataItself));
+        theDataItself = resp;;
         cartItems = JSON.parse(theDataItself['pdata']);
-        console.log(cartItems);
         itemPrices = JSON.parse(theDataItself['sdata']);
-        console.log(itemPrices);
         makeDivsOfOrder();
     });
 }

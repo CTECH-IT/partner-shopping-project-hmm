@@ -52,6 +52,10 @@
     flex: 1 1;
 }
 
+table, th, td {
+    border: 2px solid #aaaaaa;
+}
+
 @media all and (max-width: 500px) {
     #email-input {
         width: 80%;

@@ -43,8 +43,14 @@ function displayOrder() {
 
 function openCartScreen() {
     'use strict';
-    remoteDataStore.remove(CART_DATA_LOC, function () {});
-    remoteDataStore.add({'emailAddress': CART_DATA_LOC, 'pdata': cartItems, 'sdata': itemPrices}, function () {
-        window.open('checkout.html', '_self');
-    });
+
+    //remoteDataStore.remove(CART_DATA_LOC, function () {});
+    remoteDataStore.add({'emailAddress': CART_DATA_LOC, 'pdata': cartItems, 'sdata': itemPrices});
+    window.open('checkout.html', '_self');
+}
+
+function openShopScreen() {
+    //remoteDataStore.remove(CART_DATA_LOC, function () {});
+    remoteDataStore.add({'emailAddress': CART_DATA_LOC, 'pdata': cartItems, 'sdata': itemPrices});
+    window.open('index.html', '_self');
 }

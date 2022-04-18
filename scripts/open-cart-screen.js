@@ -33,9 +33,9 @@ function displayOrder() {
         console.log(resp);
         theDataItself = resp;
         console.log(Object.keys(theDataItself));
-        cartItems = theDataItself['pdata'];
+        cartItems = JSON.parse(theDataItself['pdata']);
         console.log(cartItems);
-        itemPrices = theDataItself['sdata'];
+        itemPrices = JSON.parse(theDataItself['sdata']);
         console.log(itemPrices);
         makeDivsOfOrder();
     });
@@ -44,8 +44,8 @@ function displayOrder() {
 function openCartScreen() {
     'use strict';
 
-    //remoteDataStore.remove(CART_DATA_LOC, function () {});
-    remoteDataStore.add({'emailAddress': CART_DATA_LOC, 'pdata': cartItems, 'sdata': itemPrices});
+    // remoteDataStore.remove(CART_DATA_LOC, function () {});
+    remoteDataStore.add({'emailAddress': CART_DATA_LOC, 'pdata': JSON.stringify(cartItems), 'sdata': JSON.stringify(itemPrices)});
     window.open('checkout.html', '_self');
 }
 

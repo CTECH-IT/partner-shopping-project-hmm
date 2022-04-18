@@ -1,16 +1,7 @@
 var total;
 const CART_DATA_LOC = 'ABCabc15739';
 
-function displayOrder() {
-    let theDataItself = {};
-    remoteDataStore.get(CART_DATA_LOC, function (serverResponse) {
-        console.log(serverResponse);
-        theDataItself = serverResponse;
-    });
-    console.log(theDataItself);
-    //cartItems = theDataItself['pdata'];
-    //itemPrices = theDataItself['sdata'];
-    remoteDataStore.remove(CART_DATA_LOC);
+function makeDivsOfOrder() {
     let $orderCont = $('<div id="order-display-container"></div>');
     for (let i in cartItems) {
         let $itemDis = $('<div class="item-display"></div>');
@@ -34,7 +25,25 @@ function displayOrder() {
     $('body').append($orderCont);
 }
 
+function displayOrder() {
+    'use strict';
+    let theDataItself = {};
+    remoteDataStore.get(CART_DATA_LOC, function (resp) {
+        console.log('on the bright side');
+        console.log(resp);
+        theDataItself = resp;
+        console.log(Object.keys(theDataItself));
+        cartItems = theDataItself['pdata'];
+        console.log(cartItems);
+        itemPrices = theDataItself['sdata'];
+        console.log(itemPrices);
+        makeDivsOfOrder();
+    });
+}
+
 function openCartScreen() {
+    'use strict';
+
     //remoteDataStore.remove(CART_DATA_LOC, function () {});
     remoteDataStore.add({'emailAddress': CART_DATA_LOC, 'pdata': cartItems, 'sdata': itemPrices});
     window.open('checkout.html', '_self');

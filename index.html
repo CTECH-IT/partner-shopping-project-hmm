@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/mobile-item-view.css">
     <link rel="stylesheet" href="stylesheets/main-shopping-list-styles.css">
+    <link rel="stylesheet" href="stylesheets/checkout-styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Palette+Mosaic&display=swap" rel="stylesheet">
@@ -26,11 +27,6 @@
           <h1 class="page-header-text-2">BOOT SHOP</h1>
         </div>
       </div>
-      <div class="cart-icon-holder">
-        <button type="button" onclick="openCartScreen()" id="cart-button">
-            <img src="/img/shopping-cart.png" class="cart-icon">
-          </button>
-        </div>
   </header>
 
   <body>
@@ -109,12 +105,27 @@
         <button id="add-cart-button" onclick="inMobile_addToCart()" data-image-role="add-to-cart">Add To Cart</button>
       </div>
     </div>
+
+    <br>
+    
+
+    <div id="email-container">
+      <form id="submit-form">
+        <p>Once finished ordering, <br> Please input your e-mail address.</p>
+        <input type="email" id="email-input" value="" placeholder="johndoe@hotmail.com" required>
+      </div>
+      <div id="submit-container">
+        <button id="submit-button" class="submit-button">Submit</button>
+      </div>
+    </form>
+
   </body>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
   <script src="scripts/remotedatastore.js"></script>
   <script src="scripts/description-control.js"></script>
   <script src="scripts/add-to-cart.js"></script>
+  <script src="scripts/submithandler.js"></script>
   <script src="scripts/open-cart-screen.js"></script>
   <script src="scripts/prod-num-track.js"></script>
   <script src="scripts/main.js"></script>

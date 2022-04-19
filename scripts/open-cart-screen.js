@@ -48,22 +48,22 @@ function displayOrder() { //gets order data to put on screen
         itemPrices = JSON.parse(theDataItself['sdata']);
         makeDivsOfOrder();
     });
+    remoteDataStore.remove(CART_DATA_LOC, function () {});
 }
 
 function getVariables() { //i would just change the function above but that tends to break everything so here is a copy
     'use strict';
     let theDataItself = {};
     remoteDataStore.get(CART_DATA_LOC, function (resp) {
-        theDataItself = resp;;
+        theDataItself = resp;
         cartItems = JSON.parse(theDataItself['pdata']);
         itemPrices = JSON.parse(theDataItself['sdata']);
     });
+    remoteDataStore.remove(CART_DATA_LOC, function () {});
 }
 
 function openCartScreen() {
     'use strict';
-
-    // remoteDataStore.remove(CART_DATA_LOC, function () {});
     remoteDataStore.add({'emailAddress': CART_DATA_LOC, 'pdata': JSON.stringify(cartItems), 'sdata': JSON.stringify(itemPrices)});
     window.open('checkout.html', '_self');
 }

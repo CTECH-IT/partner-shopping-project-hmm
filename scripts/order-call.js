@@ -1,67 +1,16 @@
-(function (window) { //copy of coffee run checklist maker(ish)
-    'use strict';
-    let App = window.App || {};
-    let $ = window.jQuery;
-    function CheckList(selector) {
-        if (!selector) {
-            throw new Error('No selector provided');
-        }
-        this.$element = $(selector);
-        if (this.$element.length === 0) {
-            throw new Error('Could not find element with selector: ' + selector);
-        }
+var orderList = new App.CheckList('#order-container');
+
+function makeChecklist () {
+    var storeReturn = {};
+    remoteDataStore.getAll(function (resp) {
+        storeReturn = JSON.parse(resp);
+    });
+    for (let i of Object.keys(storeReturn)) {
+        if ('factor' in JSON.parse(storeReturn[i])) {
+            orderList.addRow(JSON.parse(storeReturn[i]));
+        };
     }
-
-    function Row(coffeeOrder) {
-        let $div = $('<div></div>', 
-            {'data-coffee-order': 'checkbox', 
-            'class': 'checkbox'});
-        let $label = $('<label></label>');
-        let $checkbox = $('<input></input>',
-            {type: 'checkbox', 
-            value: coffeeOrder.emailAddress});
-        
-        let description = ' ' + coffeeOrder.size;
-        if (coffeeOrder.flavor) {
-            description += ' ' + coffeeOrder.flavor;
-        }
-        description += ' ' + coffeeOrder.coffee + ',';
-        description += ' (' + coffeeOrder.emailAddress + ')';
-        description += ' [' + coffeeOrder.strength + 'x]';
-
-        $label.append($checkbox);
-        $label.append(description);
-        $div.append($label);
-        this.$element = $div;
-    }
-
-    CheckList.prototype.removeRow = function (email) {
-        this.$element
-            .find('[value="' + email + '"]')
-            .closest('[data-coffee-order="checkbox"]')
-            .remove();
-    };
-    
-    CheckList.prototype.addRow = function (coffeeOrder) {
-        this.removeRow(coffeeOrder.emailAddress);
-        var rowElement = new Row(coffeeOrder);
-        this.$element.append(rowElement.$element);
-    };
-
-    CheckList.prototype.addClickHandler = function (func) {
-        this.$element.on('click', 'input', function (event) {
-            var email = event.target.value;
-            this.removeRow(email);
-            func(email);
-        }.bind(this));
-    };
-
-    App.CheckList = CheckList;
-    window.App = App;
-})(window);
-
-var orderList = new CheckList('#order-container');
-
-function makeChecklist() {
-    
+    orderList.addClickHandler(function (email) {
+        remoteDataStore.remove(email);
+    });
 }

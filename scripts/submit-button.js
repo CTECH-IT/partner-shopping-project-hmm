@@ -11,6 +11,8 @@ document.getElementById("submit-button").addEventListener("click", function(even
         remoteDataStore.remove('ABCabc15739');
         remoteDataStore.add({'emailAddress': 'ABCabc15739', 'pdata': {}, 'sdata': {}});
         window.location.reload()
+        openShopScreen();
+        
     } else {
         
     }

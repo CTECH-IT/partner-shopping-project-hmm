@@ -1,3 +1,5 @@
+const HIDDEN_DETAIL_CLASS = "invisible";
+
 
 document.getElementById("submit-button").addEventListener("click", function(event) {
     event.preventDefault();
@@ -8,7 +10,12 @@ document.getElementById("submit-button").addEventListener("click", function(even
         console.log(cartItems);
         remoteDataStore.remove('ABCabc15739');
         remoteDataStore.add({'emailAddress': 'ABCabc15739', 'pdata': {}, 'sdata': {}});
+        window.location.reload()
+        openShopScreen();
+        
     } else {
-        console.log("ji")
+        
     }
+
 });
+

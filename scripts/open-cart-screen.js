@@ -43,7 +43,7 @@ function displayOrder() { //gets order data to put on screen
     'use strict';
     let theDataItself = {};
     remoteDataStore.get(CART_DATA_LOC, function (resp) {
-        theDataItself = resp;;
+        theDataItself = resp;
         cartItems = JSON.parse(theDataItself['pdata']);
         itemPrices = JSON.parse(theDataItself['sdata']);
         makeDivsOfOrder();

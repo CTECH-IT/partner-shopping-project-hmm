@@ -43,9 +43,10 @@ function displayOrder() { //gets order data to put on screen
     'use strict';
     let theDataItself = {};
     remoteDataStore.get(CART_DATA_LOC, function (resp) {
+        console.log(resp);
         theDataItself = resp;
-        cartItems = JSON.parse(theDataItself['pdata']);
-        itemPrices = JSON.parse(theDataItself['sdata']);
+        cartItems = JSON.parse(theDataItself.pdata);
+        itemPrices = JSON.parse(theDataItself.sdata);
         makeDivsOfOrder();
     });
     remoteDataStore.remove(CART_DATA_LOC, function () {});
@@ -56,8 +57,8 @@ function getVariables() { //i would just change the function above but that tend
     let theDataItself = {};
     remoteDataStore.get(CART_DATA_LOC, function (resp) {
         theDataItself = resp;
-        cartItems = JSON.parse(theDataItself['pdata']);
-        itemPrices = JSON.parse(theDataItself['sdata']);
+        cartItems = JSON.parse(theDataItself.pdata);
+        itemPrices = JSON.parse(theDataItself.sdata);
     });
     remoteDataStore.remove(CART_DATA_LOC, function () {});
 }

@@ -1,16 +1,21 @@
 var orderList = new App.CheckList('#order-container');
 
+var storeReturn = {};
 function makeChecklist () {
-    var storeReturn = {};
+    // where storeReturn was previously declared
     remoteDataStore.getAll(function (resp) {
-        storeReturn = JSON.parse(resp);
+        storeReturn = resp;
     });
-    for (let i of Object.keys(storeReturn)) {
-        if ('factor' in JSON.parse(storeReturn[i])) {
-            orderList.addRow(JSON.parse(storeReturn[i]));
-        };
-    }
-    orderList.addClickHandler(function (email) {
-        remoteDataStore.remove(email);
-    });
+    // where tempThing() used to be
+}
+function tempThing() {
+for (let i of Object.keys(storeReturn)) {
+    console.log(i);
+    if ('factor' in storeReturn[i]) {
+        orderList.addRow(storeReturn[i]);
+    };
+}
+orderList.addClickHandler(function (email) {
+    remoteDataStore.remove(email);
+});
 }

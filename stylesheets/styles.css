@@ -38,6 +38,19 @@
     display: flex;
 }
 
+.settings-icon-holder {
+    display: flex;
+    width: 100%;
+}
+
+.settings-icon {
+position:relative;   
+max-width:30px;
+    max-height:30px;
+    margin-right: 0;
+    display: flex;
+}
+
 .shop-icon-holder {
     float:right;
 

@@ -74,9 +74,15 @@ function openCartScreen() {
     window.open('checkout.html', '_self');
 }
 
-function openShopScreen() {
+function openShopScreen(isSubmit) {
     //remoteDataStore.remove(CART_DATA_LOC, function () {});
-    remoteDataStore.add({'emailAddress': CART_DATA_LOC, 'pdata': JSON.stringify(cartItems), 'sdata': JSON.stringify(itemPrices)});
+    if(isSubmit == false) {
+        //If coming back from the cart screen (you didn't submit) then call the items in cart
+        remoteDataStore.add({'emailAddress': CART_DATA_LOC, 'pdata': JSON.stringify(cartItems), 'sdata': JSON.stringify(itemPrices)});
+    } else {
+        //otherwise, if coming from the submit button, create a new order.
+        remoteDataStore.add({'emailAddress': 'ABCabc15739', 'pdata': {}, 'sdata': {}});
+    }
     window.open('index.html', '_self');
 
 }

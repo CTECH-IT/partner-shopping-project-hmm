@@ -80,7 +80,7 @@ function openShopScreen() {
     window.open('index.html', '_self');
 
 }
-}
+
 
 function openManagerView() {
     if(prompt("Password?") == "1234") {

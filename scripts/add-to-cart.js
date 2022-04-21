@@ -12,9 +12,23 @@ function addToCart(button) { //adds opened item to cart and closes panel
     toggleDesc(thing);
     if (cartItems[orderName] != undefined) {
         cartItems[orderName] = cartItems[orderName] + orderNum;
+
+        updateItemCount(Object.values(cartItems).reduce(function(sumTotal, currentValue) {
+            //reduce goes through every itme in the array and makes it the currentValue, then adds that to the sumTotal if another value is found.
+            return sumTotal + currentValue
+            //Adds the sum of all but the last value and the last value together to get total
+        }, 0))
+        
     } else {
         cartItems[orderName] = orderNum;
+
+    updateItemCount(Object.values(cartItems).reduce(function(sumTotal, currentValue) {
+            //reduce goes through every itme in the array and makes it the currentValue, then adds that to the sumTotal if another value is found.
+            return sumTotal + currentValue
+            //Adds the sum of all but the last value and the last value together to get total
+        }, 0))
     }
+    
     itemPrices[orderName] = productPrice;
 }
 

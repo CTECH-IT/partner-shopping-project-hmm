@@ -50,10 +50,12 @@ function displayOrder() { //gets order data to put on screen
         makeDivsOfOrder();
         remoteDataStore.remove(CART_DATA_LOC, function () {});
     });
+
 }
 
 function getVariables() { //i would just change the function above but that tends to break everything so here is a copy
     'use strict';
+
     let theDataItself = {};
     remoteDataStore.get(CART_DATA_LOC, function (resp) {
         theDataItself = resp;
@@ -63,6 +65,7 @@ function getVariables() { //i would just change the function above but that tend
         remoteDataStore.remove(CART_DATA_LOC, function () {});
         }
     });
+
 }
 
 function openCartScreen() {
@@ -75,6 +78,8 @@ function openShopScreen() {
     //remoteDataStore.remove(CART_DATA_LOC, function () {});
     remoteDataStore.add({'emailAddress': CART_DATA_LOC, 'pdata': JSON.stringify(cartItems), 'sdata': JSON.stringify(itemPrices)});
     window.open('index.html', '_self');
+
+}
 }
 
 function openManagerView() {

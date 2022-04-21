@@ -61,6 +61,10 @@ function getVariables() { //i would just change the function above but that tend
         itemPrices = JSON.parse(theDataItself.sdata);
     });
     remoteDataStore.remove(CART_DATA_LOC, function () {});
+    
+    updateItemCount(Object.values(cartItems).reduce(function(sumTotal, currentValue) {
+        return sumTotal + currentValue
+    }, 0))
 }
 
 function openCartScreen() {

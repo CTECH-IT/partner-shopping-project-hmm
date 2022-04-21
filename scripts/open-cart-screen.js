@@ -77,8 +77,10 @@ function openCartScreen() {
 function openShopScreen(isSubmit) {
     //remoteDataStore.remove(CART_DATA_LOC, function () {});
     if(isSubmit == false) {
+        //If coming back from the cart screen (you didn't submit) then call the items in cart
         remoteDataStore.add({'emailAddress': CART_DATA_LOC, 'pdata': JSON.stringify(cartItems), 'sdata': JSON.stringify(itemPrices)});
     } else {
+        //otherwise, if coming from the submit button, create a new order.
         remoteDataStore.add({'emailAddress': 'ABCabc15739', 'pdata': {}, 'sdata': {}});
     }
     window.open('index.html', '_self');

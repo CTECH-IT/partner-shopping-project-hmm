@@ -74,3 +74,11 @@ function openShopScreen() {
     remoteDataStore.add({'emailAddress': CART_DATA_LOC, 'pdata': JSON.stringify(cartItems), 'sdata': JSON.stringify(itemPrices)});
     window.open('index.html', '_self');
 }
+
+function openManagerView() {
+    if(prompt("Password?") == "1234") {
+        window.open('order-management.html', '__blank')
+    } else {
+        alert("Wrong Password!")
+    }
+}

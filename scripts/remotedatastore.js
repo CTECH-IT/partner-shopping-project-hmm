@@ -22,6 +22,13 @@ const SERVER_URL = 'http://saturn.rochesterschools.org:8080/json';
         $.get(this.serverUrl + '?emailAddress=' + key, function (serverResponse) {
             console.log(serverResponse);
             cb(serverResponse);
+
+            if(document.getElementById("item-counter")) { // I couldn't find a better place to put it. Checks if page is index.html
+            updateItemCount(Object.values(cartItems).reduce(function(sumTotal, currentValue) {
+                return sumTotal + currentValue
+            }, 0))
+        }
+
         });
     };
 

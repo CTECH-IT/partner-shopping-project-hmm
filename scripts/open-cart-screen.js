@@ -57,9 +57,11 @@ function getVariables() { //i would just change the function above but that tend
     let theDataItself = {};
     remoteDataStore.get(CART_DATA_LOC, function (resp) {
         theDataItself = resp;
+        if (theDataItself != '') {
         cartItems = JSON.parse(theDataItself.pdata);
         itemPrices = JSON.parse(theDataItself.sdata);
         remoteDataStore.remove(CART_DATA_LOC, function () {});
+        }
     });
 }
 

@@ -48,9 +48,9 @@ function displayOrder() { //gets order data to put on screen
         cartItems = JSON.parse(theDataItself.pdata);
         itemPrices = JSON.parse(theDataItself.sdata);
         makeDivsOfOrder();
+        remoteDataStore.remove(CART_DATA_LOC, function () {});
     });
-    
-    remoteDataStore.remove(CART_DATA_LOC, function () {});
+
 }
 
 function getVariables() { //i would just change the function above but that tends to break everything so here is a copy
@@ -59,11 +59,12 @@ function getVariables() { //i would just change the function above but that tend
     let theDataItself = {};
     remoteDataStore.get(CART_DATA_LOC, function (resp) {
         theDataItself = resp;
+        if (theDataItself != '') {
         cartItems = JSON.parse(theDataItself.pdata);
         itemPrices = JSON.parse(theDataItself.sdata);
+        remoteDataStore.remove(CART_DATA_LOC, function () {});
+        }
     });
-    remoteDataStore.remove(CART_DATA_LOC, function () {});
-    
 
 }
 
@@ -78,4 +79,13 @@ function openShopScreen() {
     remoteDataStore.add({'emailAddress': CART_DATA_LOC, 'pdata': JSON.stringify(cartItems), 'sdata': JSON.stringify(itemPrices)});
     window.open('index.html', '_self');
 
+}
+}
+
+function openManagerView() {
+    if(prompt("Password?") == "1234") {
+        window.open('order-management.html', '__blank')
+    } else {
+        alert("Wrong Password!")
+    }
 }

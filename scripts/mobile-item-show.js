@@ -36,6 +36,7 @@ function setDetails(imageUrl, titleText, descText, priceText) {
 }
 
 function checkForRemoval(title) {
+    //checks if the previousitem is the current item, if so closes the mobile show
     if (previousItem == title) {
         sameItem = true;
         previousItem = "none"
@@ -73,6 +74,7 @@ function descFromThumb(thumbnail) {
 function priceFromThumb(thumbnail, isAddToCart) {
     "use strict";
     if (isAddToCart == false) {
+        //changes 5 to 5.00
         let number = parseInt(thumbnail.getAttribute("data-image-price"));
         let newnumber = (Math.round(number * 100) / 100).toFixed(2)
         return newnumber
@@ -124,6 +126,7 @@ function hideDetails() {
 }
 
 function showOrHideDetails() {
+    //called on click of a thumbnail 
     if (sameItem == true) {
         hideDetails();
     } else {

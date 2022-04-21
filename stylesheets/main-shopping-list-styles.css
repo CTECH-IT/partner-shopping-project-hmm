@@ -22,6 +22,14 @@ body {
 #shop-button:hover {
     cursor: pointer;
 }
+#settings-button {
+    border: none;
+    background: none;
+    float: right; 
+}
+#settings-button:hover {
+    cursor: pointer;
+}
 #helpful-hint {
     font-style: italic;
     text-transform: lowercase;

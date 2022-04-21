@@ -12,23 +12,22 @@
         }
     }
 
-    function Row(coffeeOrder) {
+    function Row(order) {
         let $div = $('<div></div>', 
             {'data-coffee-order': 'checkbox', 
             'class': 'checkbox'});
         let $label = $('<label></label>');
         let $checkbox = $('<input></input>',
             {type: 'checkbox', 
-            value: coffeeOrder.emailAddress});
+            value: order.emailAddress});
         
-        let description = ' ' + coffeeOrder.size;
-        if (coffeeOrder.flavor) {
-            description += ' ' + coffeeOrder.flavor;
+        let pData = JSON.parse(order.pdata);
+        let selectorNames = Object.keys(pData);
+        let description = '';
+        for (const i of selectorNames) {
+            description += pData[i] + ' ' + i + ', ';
         }
-        description += ' ' + coffeeOrder.coffee + ',';
-        description += ' (' + coffeeOrder.emailAddress + ')';
-        description += ' [' + coffeeOrder.strength + 'x]';
-
+        description += '  for: ' + order.emailAddress;
         $label.append($checkbox);
         $label.append(description);
         $div.append($label);
